@@ -1,6 +1,6 @@
 <div class="container">
   <img src="../../../../../../assets/angular.png" alt="logo" title="Logo" />
-  <form action="">
+  <form [formGroup]="formAuth" (ngSubmit)="submitForm()">
     <label for="">
       <svg
         width="20"
@@ -14,7 +14,7 @@
           fill="#4A4A4A"
         />
       </svg>
-      <input type="email" placeholder="Email" required />
+      <input type="email" formControlName="email" placeholder="Email" required />
     </label>
     <label for="">
       <svg
@@ -29,9 +29,9 @@
           fill="#4A4A4A"
         />
       </svg>
-      <input type="password" placeholder="Password" required />
+      <input type="password" formControlName="password" placeholder="Password" required />
     </label>
-    <button class="red-btn" disabled>Login</button>
+    <button class="red-btn" [disabled]="formAuth.invalid">Login</button>
   </form>
-  <span class="msg-error">Invalid credentials</span>
+  <span class="msg-error" *ngIf="errorMessage">{{ errorMessage }}</span>
 </div>
