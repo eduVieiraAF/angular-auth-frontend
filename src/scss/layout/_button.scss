@@ -1,0 +1,22 @@
+
+.red-btn {
+  width: 100%;
+  height: 60px;
+  margin: 25px 0 0;
+  border-radius: 10px;
+  font-size: 18px;
+  background: $red;
+  color: $white;
+  cursor: pointer;
+
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  &:disabled {
+    background: $blue-gray;
+    color: $light-gray;
+    cursor: not-allowed;
+  }
+}
