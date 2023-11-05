@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, CanActivateChildFn } from '@angular/router';
 import { ErrorPageComponent } from './core/components/error-page/error-page.component';
+
+import { authGuard } from './core/guard/auth.guard';
 
 const routes: Routes = [
   {
@@ -9,6 +11,7 @@ const routes: Routes = [
   },
   {
     path: 'admin',
+    canActivateChild: [authGuard],
     loadChildren: () => import('./components/admin/admin.module').then(m => m.AdminModule)
   },
   {
